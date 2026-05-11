@@ -2,14 +2,15 @@
   "name": "darat-al-sumaa",
   "version": "0.1.0",
   "private": true,
-  "scripts": "build": "prisma generate && next build"
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "db:push": "prisma db push",
-    "db:studio": "prisma studio",
-    "db:generate": "prisma generate"
+  "scripts": {
+  "dev": "next dev",
+  "build": "prisma generate && next build",
+  "start": "next start",
+  "lint": "next lint",
+  "db:push": "prisma db push",
+  "db:studio": "prisma studio",
+  "db:generate": "prisma generate"
+},
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.30.0",
