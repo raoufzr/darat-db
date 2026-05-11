@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 160 15% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 15% 12%;
+    --muted: 160 10% 95%;
+    --muted-foreground: 160 8% 45%;
+    --border: 160 10% 88%;
+    --radius: 0.75rem;
+    --teal: #0F6E56;
+    --amber: #EF9F27;
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 160 5% 95%;
+    --card: 160 15% 12%;
+    --card-foreground: 160 5% 95%;
+    --muted: 160 12% 18%;
+    --muted-foreground: 160 8% 60%;
+    --border: 160 12% 22%;
+  }
+
+  * { @apply border-border; }
+  
+  html {
+    direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-arabic antialiased;
+    background-color: #F7FAF9;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F0F5F3; }
+::-webkit-scrollbar-thumb { background: #0F6E56; border-radius: 3px; }
+
+/* RTL utilities */
+.rtl { direction: rtl; }
+.ltr { direction: ltr; }
+
+/* Card styles */
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 110, 86, 0.1);
+}
+
+/* Star rating */
+.star-filled { color: #EF9F27; fill: #EF9F27; }
+.star-empty { color: #D1D5DB; }
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Teal gradient */
+.teal-gradient {
+  background: linear-gradient(135deg, #0F6E56 0%, #1a9471 50%, #0F6E56 100%);
+}
+
+/* Pattern background */
+.pattern-bg {
+  background-color: #F7FAF9;
+  background-image: radial-gradient(#0F6E5615 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Alert pulse */
+@keyframes alert-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.alert-pulse { animation: alert-pulse 2s ease-in-out infinite; }
+
+/* Rating badge colors */
+.rating-5 { background: #ECFDF5; color: #065F46; border-color: #A7F3D0; }
+.rating-4 { background: #F0FDF4; color: #166534; border-color: #BBF7D0; }
+.rating-3 { background: #FFFBEB; color: #92400E; border-color: #FDE68A; }
+.rating-2 { background: #FFF7ED; color: #9A3412; border-color: #FED7AA; }
+.rating-1 { background: #FEF2F2; color: #991B1B; border-color: #FECACA; }
+
+/* Number font override for Arabic */
+.num { font-variant-numeric: tabular-nums; direction: ltr; display: inline-block; }

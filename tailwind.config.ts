@@ -1,0 +1,60 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ['class'],
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        teal: {
+          DEFAULT: '#0F6E56',
+          50: '#E8F5F1',
+          100: '#C5E8DC',
+          200: '#8FD0BA',
+          300: '#59B898',
+          400: '#2D9A77',
+          500: '#0F6E56',
+          600: '#0B5743',
+          700: '#084030',
+          800: '#052A1E',
+          900: '#02150F',
+        },
+        amber: {
+          DEFAULT: '#EF9F27',
+          50: '#FEF6E7',
+          100: '#FDEAC2',
+          200: '#FBD485',
+          300: '#F9BE47',
+          400: '#EF9F27',
+          500: '#D4850F',
+          600: '#A8680B',
+          700: '#7C4C08',
+          800: '#503005',
+          900: '#281802',
+        },
+        border: 'hsl(var(--border))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
+        muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+      },
+      fontFamily: {
+        arabic: ['Noto Sans Arabic', 'Tajawal', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+      },
+      borderRadius: { lg: 'var(--radius)', md: 'calc(var(--radius) - 2px)', sm: 'calc(var(--radius) - 4px)' },
+      keyframes: {
+        'fade-in': { '0%': { opacity: '0', transform: 'translateY(8px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+        'slide-in': { '0%': { transform: 'translateX(20px)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } },
+        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+        'spin-slow': { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.4s ease-out',
+        'slide-in': 'slide-in 0.3s ease-out',
+        shimmer: 'shimmer 2s infinite linear',
+        'spin-slow': 'spin-slow 8s linear infinite',
+      },
+    },
+  },
+  plugins: [require('tailwindcss-animate')],
+}
