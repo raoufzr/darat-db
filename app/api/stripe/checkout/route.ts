@@ -30,14 +30,14 @@ export async function POST(req: NextRequest) {
     const stripe = new Stripe(stripeKey, { apiVersion: '2024-10-28.acacia' as any })
 
     const checkoutSession = await stripe.checkout.sessions.create({
-      customer_email: session.user.email!,
+      customer_email: session.user.email ?? undefined,
       mode: 'subscription',
       payment_method_types: ['card'],
       line_items: [{ price: PRICE_IDS[plan], quantity: 1 }],
       success_url: `${process.env.NEXT_PUBLIC_URL}/dashboard?upgraded=true`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/pricing`,
       metadata: { userId: session.user.id, plan },
-      locale: 'ar',
+      locale: 'auto',
     })
 
     return NextResponse.json({ url: checkoutSession.url })
