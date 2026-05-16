@@ -20,6 +20,8 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async redirect({ url, baseUrl }) {
+      if (url.startsWith(baseUrl)) return url
+      if (url.startsWith('/')) return baseUrl + url
       return baseUrl + '/dashboard'
     },
     session: async ({ session, user }) => {
